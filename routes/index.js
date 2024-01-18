@@ -12,7 +12,7 @@ router.get('/', function (req, res, next) {
   let recommendations = JSON.parse(recommendationsData);
 
   // Pass recommendations data to index.ejs view
-  res.render('index', { title: 'Express', recommendations: recommendations });
+  res.render('index', { title: 'Express', data: recommendations });
 });
 
 module.exports = router;
