@@ -40,7 +40,7 @@ router.post('/', jsonParser, function(req, res, next) {
   res.end();
 });
 //Delete Recommendations
-router.delete('/', jsonParser, ensureLogIn, function(req, res, next) {
+router.delete('/', jsonParser, function(req, res, next) {
   if (req.body.name == null) {
     res.status(400).end("Name not provided");
   }
