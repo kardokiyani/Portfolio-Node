@@ -6,6 +6,8 @@ var request = require('request');
 var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json()
 var request = require('request');
+var ensureLogIn = require('connect-ensure-login').ensureLoggedIn;
+var ensureLoggedIn = ensureLogIn();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -53,7 +55,7 @@ router.post('/', jsonParser, function(req, res, next) {
   res.end();
 });
 //Delete images
-router.delete('/', jsonParser, function(req, res, next) {
+router.delete('/', jsonParser, ensureLoggedIn, function(req, res, next) {
   if (req.body.name == null) {
     res.status(400).end("Name not provided");
   }
